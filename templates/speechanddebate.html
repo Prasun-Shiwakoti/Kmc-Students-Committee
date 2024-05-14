@@ -1,0 +1,116 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speech and Debate Club</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
+</head>
+
+<body>
+
+  <div id='nav-placeholder'>{% include 'nav.html' %} {% block nav %} {% endblock %}</div>
+
+  <div class="second-section">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for headerId in headerImgs.keys %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{headerId}}" class="active"
+          aria-current="true" aria-label="Slide {{headerId}}"></button>
+        {% endfor %}
+
+      </div>
+      <div class="carousel-inner">
+        {% for headerId, headerImg in headerImgs.items %}
+        <div class="carousel-item {% if headerId == 0 %} active {% endif %}">
+          <img src="{{headerImg.Image.url}}" class='d-block w-100' alt='...' style="max-height: 400px;">
+        </div>
+        {% endfor %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="third-section">
+    <div class="card">
+      <h1 class="card-header" id="h-font">Introducing Arts &amp; Culture Club</h1>
+      <div class="card-body">
+        <div class="committee-thumbnail"><img id='thumbnail_1' src="{%static 'img/speechanddebate/sd.jpg' %}"></div>
+          <br>
+        <h5 class="card-title">The speech and debate club is devoted to advance and advocate public speaking within and
+          outside the college vicinity and is committed to develop oratory skills of general KMCians.</h5>
+        <p class="card-text">Speech and Debate club is a club that works under the supervision of KMC Students
+          Committee. It is a group of voracious orators who work as a team to organize activities related to speech and
+          debate within and around the college premises. This club organizes speech and debate competitions throughout
+          the year for general KMCians and extends invitation to other institutions as well.
+          This club is dedicated to promote public speaking and representing KMC in intercollege debates. The members
+          work together to cherish and flourish oratory skills of students of KMC by encouraging them to take part in
+          different events related to public speaking.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section-fourth">
+    <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">OBJECTIVES OF Speech and Debate Club</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <th scope="row">1</th>
+                <td>1.	To organize events related to speech and debate</td>
+              </tr>
+
+              <tr>
+                <th scope="row">2</th>
+                <td>2.	To chair healthy debates and discussions on contemporary issues</td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">3.	Representation of KMC in different Inter-school events</td>
+              </tr>
+
+              <tr>
+                <th scope="row">4</th>
+                <td colspan="2">4.	Provision of suitable platform to practice public speaking regularly</td>
+              </tr>
+
+              <tr>
+                <th scope="row">5</th>
+                <td colspan="2">5.	Organization of workshops to promote public speaking and develop one’s oratory skills.</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+  </div>
+  <footer id="footer">
+    {% include 'footer.html' %} {% block footer %}{% endblock %}
+
+  </footer>
+  <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+  <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>

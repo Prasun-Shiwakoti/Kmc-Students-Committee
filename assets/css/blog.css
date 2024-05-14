@@ -1,0 +1,116 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  body {
+    font-family: Arial;
+    padding: 0px;
+    background: #f1f1f1;
+    overflow-x: hidden;
+  }
+
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {
+    float: left;
+    margin-left: 12px;
+    width: 70%;
+  }
+
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+  }
+
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    display:flex;
+
+  }
+
+
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .popular_posts a {
+    text-decoration: none;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .popular_posts a:hover {
+    opacity: 0.5;
+  }
+  .rxnBtn{
+   background-color: #fff;
+   border:0px;
+
+  }
+  .copyLinkBtn{
+   background-color: #fff;
+   border:0px;
+
+  }
+  .postInfo{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .postInfo div{
+    padding: 5px;
+    border-right: 2px solid black;
+  }
+  .otherPost{
+    padding: 10px 0px;
+    border-bottom: 2px solid #e3e3e3;
+  }
+  .image-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+  }
+  .image-container a{
+    margin: 5px;
+  }
+
+
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
+  @media screen and (max-width: 800px) {
+    .image-container{
+        display:unset;
+    }
+
+
+  }
+
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+    h5{
+      font-size: small;
+    }
+    button{
+      font-size:10px;
+    }
+  }
+  @media screen and (max-width: 1210px) {
+    h5{
+      font-size: 15px;
+    }
+    button{
+      font-size:small;
+    }
+
+  }

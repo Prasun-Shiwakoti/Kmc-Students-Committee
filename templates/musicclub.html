@@ -1,0 +1,129 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Club</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
+</head>
+
+<body>
+
+  <div id='nav-placeholder'>{% include 'nav.html' %} {% block nav %} {% endblock %}</div>
+
+  <div class="second-section">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for headerId in headerImgs.keys %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{headerId}}" class="active"
+          aria-current="true" aria-label="Slide {{headerId}}"></button>
+        {% endfor %}
+
+      </div>
+      <div class="carousel-inner">
+        {% for headerId, headerImg in headerImgs.items %}
+        <div class="carousel-item {% if headerId == 0 %} active {% endif %}">
+          <img src="{{headerImg.Image.url}}" class='d-block w-100' alt='...' style="max-height: 400px;">
+        </div>
+        {% endfor %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="third-section">
+    <div class="card">
+      <h1 class="card-header" id="h-font">Introducing Music Club</h1>
+      <div class="card-body">
+        <div class="committee-thumbnail"><img id='thumbnail_1' src="{%static 'img/musicclub/mc.jpg' %}"> </div>
+          <br>
+          <h5 class="card-title">"Music speaks there, where words can't"</h5>
+          <p class="card-text">The Music Club aims to promote taste and talent amongst KMCSS students by organizing
+            competitions,
+            programs and performances. It offers an opportunity for students to come together and discuss music and a
+            chance to perform and showcase their talents at events throughout the year. The club emphasizes on all types
+            of talents, hence has allowed students from various spheres of music(both vocatis and instruments)to come
+            together and work in harmony for better outcomes throughout the year in the competitions and programmes.
+            Apart from these, meetings are scheduled based on the activities that should be carried on by our club in
+            the
+            callege programs and student committee throughout the year.
+            <br><br>
+          <h1>Goal Of The Club</h1>
+          <br>
+          <p>KMC Music Club focuses on cultivation of musical talent around the college. Students get to participate and
+            exposed to various musical activities throughout the academic year. They are highly encouraged to develop
+            and acquire musical skills. KMC Music Club is a precious part of the Student Committee, where the musical
+            talent grows and where the leadership skills gets practiced and encouraged in club meetings.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section-fourth">
+      <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">OBJECTIVES OF MUSIC CLUB</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <th scope="row">1</th>
+                <td>To engage musically talented/experienced students in different musical programs conducted by the
+Committee or college.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">2</th>
+                <td>To maintain the progress in the musical skills of the students throughout the academic year.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">To develop leädership skills among the club members.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">4</th>
+                <td colspan="2">To conduct different music related programs to increase the reach of the dlub among the college
+students.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">5</th>
+                <td colspan="2">To participate (musical performance if required) in each and every program of the committee and
+valunteer different programs.</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+    </div>
+    <footer id="footer">
+      {% include 'footer.html' %} {% block footer %}{% endblock %}
+    </footer>
+    <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>
+
+</body>
+
+</html>

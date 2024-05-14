@@ -1,0 +1,125 @@
+{% include 'nav.html' %} {%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arts and Culture</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}" />
+</head>
+
+<body>
+  <div id="nav-placeholder">{% block nav %} {% endblock %}</div>
+
+  <div class="second-section">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for headerId in headerImgs.keys %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{headerId}}" class="active"
+          aria-current="true" aria-label="Slide {{headerId}}"></button>
+        {% endfor %}
+
+      </div>
+      <div class="carousel-inner">
+        {% for headerId, headerImg in headerImgs.items %}
+        <div class="carousel-item {% if headerId == 0 %} active {% endif %}">
+          <img src="{{headerImg.Image.url}}" class='d-block w-100' alt='...' style="max-height: 400px;">
+        </div>
+        {% endfor %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="third-section">
+    <div class="card">
+      <h1 class="card-header" id="h-font">
+        Introducing Arts &amp; Culture Club
+      </h1>
+      <div class="card-body">
+        <div class="committee-thumbnail">
+          <img id='thumbnail_1' src="{%static 'img/artandcultureclub/artslogo.png' %}"> </div>
+          <br>
+          <h5 class="card-title">"Create with your heart, build with your mind"</h5>
+            <p class="card-text">
+A club with the imagination, creativeness and a something of craziness flowing
+through the heart and mind of all the members. A club that shares the unique and
+different prospective toward art and culture. Our club previously just known as art
+club became ART AND CULTURE club with the believe that culture is arts evaluated
+to set off believe. Our club wants to look the world with our own artistic way and
+vision. Each and every member of the club are willing to learn something new that
+beholds our heart.
+We are doing what we wished for, learning something we really want to. We do
+our work with everything we got, trying to make it best. We create wonderful
+memories here with everyone that could be shared and remembered. The club
+members are best at their own works. We work together to light up the programs
+that are conducted and make it more admirable through our work. Never or ever
+just show up your heart.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-fourth">
+      <div class="section-fourth">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">OBJECTIVES OF Art And Culture Club</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <th scope="row">1</th>
+                <td>To create the club where one is unbound of limits. </td>
+              </tr>
+
+              <tr>
+                <th scope="row">2</th>
+                <td>TO organize events and competitions to enhance art and culture.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">To decorate each and every programs to make it success.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">4</th>
+                <td colspan="2">To help others to display their creativity and learns as they wish to.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">5</th>
+                <td colspan="2">Motivating and Uplifting the members to prosper in computer skill</td>
+              </tr>
+
+            </tbody>
+          </table>
+    </div>
+    <footer id="footer">
+      {% include 'footer.html' %} {% block footer %}{% endblock %}
+    </footer>
+    <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>
+    {% comment %}
+    <script type="text/javascript" src="js/function.js"></script>
+    {% endcomment %}
+</body>
+
+</html>

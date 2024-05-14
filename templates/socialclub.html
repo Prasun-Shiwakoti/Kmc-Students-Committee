@@ -1,0 +1,114 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Club</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
+</head>
+
+<body>
+
+  <div id='nav-placeholder'>{% include 'nav.html' %} {% block nav %} {% endblock %}</div>
+
+  <div class="second-section">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for headerId in headerImgs.keys %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{headerId}}" class="active"
+          aria-current="true" aria-label="Slide {{headerId}}"></button>
+        {% endfor %}
+
+      </div>
+      <div class="carousel-inner">
+        {% for headerId, headerImg in headerImgs.items %}
+        <div class="carousel-item {% if headerId == 0 %} active {% endif %}">
+          <img src="{{headerImg.Image.url}}" class='d-block w-100' alt='...' style="max-height: 400px;">
+        </div>
+        {% endfor %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="third-section">
+    <div class="card">
+      <h1 class="card-header" id="h-font">Introducing Social Club</h1>
+      <div class="card-body">
+        <div class="committee-thumbnail"><img id='thumbnail_1' src="{%static 'img/socialclub/sc.jpg' %}"></div>
+          <br>
+        <h5 class="card-title">"The things that give us true joy are not the materialistic things
+          that we collect but the willingness to share what we have with
+          others in need".</h5><br>
+        <p class="card-text">Welcome to Social Club. As the name suggest our club is based
+          on doing acts of service to the society. We believe that the one
+          true way of worshipping god. We host numerous programs to
+          make people aware of the events happening in the society and
+          help out the one in need of it be it a person or animal.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section-fourth">
+    <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">OBJECTIVES OF Social CLUB</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <th scope="row">1</th>
+                <td>To promote social welfare.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">2</th>
+                <td>To provide opportunities for social development and
+programs</td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">To achieve social justice through positive Social change.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">4</th>
+                <td colspan="2">To assist the students with an understanding of working in
+team towards social welfare.</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+  </div>
+  <footer id="footer">
+    {% include 'footer.html' %} {% block footer %}{% endblock %}
+  </footer>
+  <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+  <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>
+
+</body>
+
+</html>

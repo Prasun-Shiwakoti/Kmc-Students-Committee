@@ -1,0 +1,45 @@
+{%load static%}
+{% block footer %}
+
+<div class="container">
+  <div>
+    <h5>
+      This page represents the student committee of Kathmandu model
+      college (KMC) Bagbazar
+    </h5>
+  </div>
+  <h4 class="footer_heading">Contact on Social Media</h4>
+  <div class="contact-holder">
+    <div>
+      <a href="https://www.facebook.com/"><img src="{% static 'img/facebook.png' %}" /></a>
+    </div>
+    <div>
+      <a href="https://www.instagram.com/"><img src="{% static 'img/instagram.png' %}" /></a>
+    </div>
+    <div>
+      <a href="https://www.twitter.com/"><img src="{% static 'img/twiter.png' %}" /></a>
+    </div>
+    <div>
+      <a href="https://www.snapchat.com/"><img src="{% static 'img/snap.png' %}" /></a>
+    </div>
+  </div>
+
+  <form class="message" action="/feedback" method="POST"> {% csrf_token %}
+    <h4 class="footer_heading">Feedback</h4>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Your Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="kmc@gmail.com" name="email" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="feedback"></textarea>
+    </div>
+    <button type="submit" class="btn btn-light">Submit</button>
+  </form>
+</div>
+<hr />
+<div style="width: 100%; text-align: center">
+  Copyright &copy; 2022 AD KMC Student Committee | All right reserved
+</div>
+<hr />
+{% endblock %}

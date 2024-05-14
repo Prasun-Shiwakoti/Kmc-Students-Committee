@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Literature Club</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
+</head>
+
+<body>
+
+  <div id='nav-placeholder'>{% include 'nav.html' %} {% block nav %} {% endblock %}</div>
+
+  <div class="second-section">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for headerId in headerImgs.keys %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{headerId}}" class="active"
+          aria-current="true" aria-label="Slide {{headerId}}"></button>
+        {% endfor %}
+
+      </div>
+      <div class="carousel-inner">
+        {% for headerId, headerImg in headerImgs.items %}
+        <div class="carousel-item {% if headerId == 0 %} active {% endif %}">
+          <img src="{{headerImg.Image.url}}" class='d-block w-100' alt='...' style="max-height: 400px;">
+        </div>
+        {% endfor %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="third-section">
+    <div class="card">
+      <h1 class="card-header" id="h-font">Introducing Literature Club</h1>
+      <div class="card-body">
+        <div class="committee-thumbnail"><img id='thumbnail_1' src="{%static 'img/literatureclub/litlogo.png' %}"></div>
+          <br>
+        <h5 class="card-title">“Since soul is our author, we live immortal”</h5><br><br>
+        <p class="card-text">Literature club of Kathmandu Model College Student’s Committee, functioning under the alias
+          “The Wordsworthers” formulated in 2017 A.D. is an asylum for the literary minds to pour out the literary skill
+          that lives concealed within themselves. We try to work against the stereotype with the activities we perform.
+          We believe that literature is a voice to many and we respect the voice of everyone as we believe that the
+          voice is kingpin of our club. Hailing from different backgrounds, places, situations and mindset, the members
+          of the club work in accordance to each other’s strengths and weaknesses and try to convert our weaknesses to
+          power with the flare of teamwork. </p>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section-fourth">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">OBJECTIVES OF o Literature club </th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <th scope="row">1</th>
+          <td>1. It provides a platform for those who deserve their voice to be heard, we don’t have preference towards
+            membership of any kind, we all are just admirers of a beautiful complex called “Literature”</td>
+        </tr>
+
+        <tr>
+          <th scope="row">2</th>
+          <td>2. We believe in “Expression over Impression”</td>
+        </tr>
+
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">3. To embed the feeling of teamwork within the members and help them develop oratorial skills.
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row">4</th>
+          <td colspan="2">4. Participation in intra-college and inter-college level programs related to literature.</td>
+        </tr>
+
+        <tr>
+          <th scope="row">5</th>
+          <td colspan="2">5. Working on development of a reading-writing culture in the vicinity of KMC.</td>
+        </tr>
+
+        <tr>
+          <th scope="row">6</th>
+          <td colspan="2">6. Emphasizing on free and profound writing rather than bounded writing.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <footer id="footer">
+    {% include 'footer.html' %} {% block footer %}{% endblock %}
+  </footer>
+  <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+  <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>
+
+</body>
+
+</html>

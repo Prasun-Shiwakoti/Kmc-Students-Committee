@@ -1,0 +1,124 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotics Club</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
+</head>
+
+<body>
+
+  <div id='nav-placeholder'>{% include 'nav.html' %} {% block nav %} {% endblock %}</div>
+
+  <div class="second-section">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for headerId in headerImgs.keys %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{headerId}}" class="active"
+          aria-current="true" aria-label="Slide {{headerId}}"></button>
+        {% endfor %}
+
+      </div>
+      <div class="carousel-inner">
+        {% for headerId, headerImg in headerImgs.items %}
+        <div class="carousel-item {% if headerId == 0 %} active {% endif %}">
+          <img src="{{headerImg.Image.url}}" class='d-block w-100' alt='...' style="max-height: 400px;">
+        </div>
+        {% endfor %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="third-section">
+    <div class="card">
+      <h1 class="card-header" id="h-font">Introducing Robotics Club</h1>
+      <div class="card-body">
+        <div class="committee-thumbnail"><img id='thumbnail_1' src="{%static 'img/roboticsclub/robo' %}"></div>
+          <br>
+        <h5 class="card-title">"One Team One Robot Unlimited possibilities"
+        </h5>
+        <p class="card-text">The Robotics club of Kathmandu Model Secondary school is a student-run club founded by
+          energetic and enthusiastic seniors solely out of passion for Robotics. Robotics Club has been
+          the harbinger in bringing the knowledge and technology of Robotics in whole of KMC.
+          <br><br>The Club has been involved in a continuous process of learning and exploring the possibilities in
+          the field of robotics most of which comes from the hands-on knowledge and experience in
+          building robots. We have designed and built various robots, all which have represented
+          Kathmandu Model College in various competitions.
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section-fourth">
+          <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">OBJECTIVES OF ROBOTICS CLUB</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <th scope="row">1</th>
+            <td>To facilitate students to understand, design and learn robotics.</td>
+          </tr>
+
+          <tr>
+            <th scope="row">2</th>
+            <td>To provide interested students with opportunities to express their skills, knowledge and
+creativity through conceptualizing, designing and programming robots.</td>
+          </tr>
+
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">To encourage and enable students to utilize and enrich their creativity and engineering
+skills through robotics.</td>
+          </tr>
+
+          <tr>
+            <th scope="row">4</th>
+            <td colspan="2">To imbibe technical skills, teamwork and leadership in the interested youths.</td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td colspan="2">To inspire young minds to be the driving force in the field of robotics, by engaging them
+in exciting, mentor-based programs that build engineering skills, inspire innovation, and
+foster well-rounded life capabilities including self-confidence, communication and
+leadership.</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+  </div>
+  <footer id="footer">
+    {% include 'footer.html' %} {% block footer %}{% endblock %}
+  </footer>
+  <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+  <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>
+
+</body>
+
+</html>

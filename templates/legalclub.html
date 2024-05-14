@@ -1,0 +1,129 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal Club</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}" />
+</head>
+
+<body>
+  <div id="nav-placeholder">{% include 'nav.html' %} {% block nav %} {% endblock %}</div>
+
+  <div class="second-section">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for headerId in headerImgs.keys %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{headerId}}" class="active"
+          aria-current="true" aria-label="Slide {{headerId}}"></button>
+        {% endfor %}
+
+      </div>
+      <div class="carousel-inner">
+        {% for headerId, headerImg in headerImgs.items %}
+        <div class="carousel-item {% if headerId == 0 %} active {% endif %}">
+          <img src="{{headerImg.Image.url}}" class='d-block w-100' alt='...' style="max-height: 400px;">
+        </div>
+        {% endfor %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="third-section">
+    <div class="card">
+      <h1 class="card-header" id="h-font">Introducing Legal Club</h1>
+      <div class="card-body">
+        <div class="committee-thumbnail">
+          <img id='thumbnail_1' src="{%static 'img/legalclub/legal1.jpg' %}">
+        </div>
+          <br>
+        <h5 class="card-title">
+          “Ethic is knowing the difference between what you have a right to do and what is right to
+          do”</h5>
+        <p class="card-text">Welcome to KMC Legal club. The KMC Legal club is made up of an energetic, friendly,
+          innovative and fresh learner whose joint goal is to protect the constitution of KMC student
+          committee. It is a club having interactive group of Legal learners with the same thirst for extra
+          knowledge of researching new topics and sharing the same ideas.
+          This club is filled with members who have interest in reading legal articles, new case laws and
+          Researching on different legal topics. This club member works tirelessly and Conducts research
+          to ensure that the current articles mentioned in the constitution is enough to address the current
+          problem in the committee throughout the year. The members of legal club work for the betterment
+          of all the student of KMC and institution itself. Bound everyone in systematic rules and regulation
+          and instruct everyone that “ignorance of law is not excused.”<br><br>
+          <b><i>“justice that love gives is a surrender, justice that law gives are a punishment.”</i></b><br><br>
+
+          The legal club holds many responsibilities as being the part of this club duties ranges from
+          supervising the activities of other club committee activities as provided in constitution, to
+          bringing different drafting proposals to amend or repeal the current existing KMC students
+          committee to ensure the current articles mentioned in Constitution are enough to address
+          problems. This legal club also ensures that the articles mentioned in the KMC student
+          constitution is being implemented properly, and also conducts different programs with the
+          collaboration with other clubs creating a beautiful moment between club members.
+
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-fourth">
+    <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">OBJECTIVES OF Legal Club</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <th scope="row">1</th>
+                <td>Organizing moot courts and also conducting different speech and debate competitions on
+legal topics with the collaboration with others clubs to enhance leadership, creativity, and
+confidence. </td>
+              </tr>
+
+              <tr>
+                <th scope="row">2</th>
+                <td>To supervise and to ensure the members of the committee along with club heads and
+executive members are following the current constitution of the KMC student committee.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">To bound everyone in a rules and regulation.</td>
+              </tr>
+
+
+
+            </tbody>
+          </table>
+
+  </div>
+  <footer id="footer">
+    {% include 'footer.html' %} {% block footer %}{% endblock %}
+  </footer>
+  <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+  <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>
+  {% comment %}
+  <script type="text/javascript" src="js/function.js"></script>
+  {% endcomment %}
+</body>
+
+</html>

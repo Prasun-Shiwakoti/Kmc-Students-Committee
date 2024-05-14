@@ -1,0 +1,236 @@
+{%load static%} {% block nav %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="navbarsticky">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <div class="logo">
+        <img src="{%static 'logo.jpg' %}" alt="Brand Logo" /></div
+    ></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/index.html"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Clubs
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="/computerclub.html"
+                >Computer Club</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/roboticclub.html"
+                >Robotics Club</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/literature.html"
+                >Literature Club</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/socialclub.html">Social Club</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/mediaclub.html">Media Club </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/musicclub.html">Music Club</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/danceclub.html">Dance Club</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/legalclub.html">Legal Club</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/artsandculture.html"
+                >Art and Culture Club</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/eventmanagementclub.html"
+                >Event Management Club</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/speechanddebate.html"
+                >Speech and Debate Club</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/researchandpresentation.html"
+                >Research and Presentation Club</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/gallery.html">Gallery</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/blogs.html">Blogs</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/upcomingevent.html">Upcomming Events</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/notice.html">Notice</a>
+        </li>
+      </ul>
+      <!-- Code for signin and singup buttons -->
+      <!-- <div class="d-flex">
+              <button
+                style="margin-right: 5px"
+                class="btn btn-outline-light"
+                data-bs-toggle="modal"
+                data-bs-target="#signin"
+              >
+                Sign In
+              </button>
+              <button
+                class="btn btn-outline-light"
+                data-bs-toggle="modal"
+                data-bs-target="#signup"
+              >
+                Sign Up
+              </button>
+            </div> -->
+    </div>
+  </div>
+</nav>
+
+<!-- this is for lunching a dialogbox for signin  -->
+<div
+  class="modal fade"
+  id="signin"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="kmc@gmail.com"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder=""
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- this is for lunching a dialogbox for  sign up -->
+<div
+  class="modal fade"
+  id="signup"
+  tabindex="-1"
+  aria-labelledby="signup"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signup">Sign In</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="kmc@gmail.com"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="Password"
+            placeholder=""
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

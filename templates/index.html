@@ -1,0 +1,445 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KMC Student Committee</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}" />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="nav-placeholder">
+    {% include 'nav.html' %} {% block nav %} {% endblock %}
+  </div>
+
+  <div class="second-section">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for headerId in headerImgs.keys %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{headerId}}" class="active"
+          aria-current="true" aria-label="Slide {{headerId}}"></button>
+        {% endfor %}
+
+      </div>
+      <div class="carousel-inner">
+        {% for headerId, headerImg in headerImgs.items %}
+        <div class="carousel-item {% if headerId == 0 %} active {% endif %}">
+          <img src="{{headerImg.Image.url}}" class='d-block w-100' alt='...' style="max-height: 400px;">
+        </div>
+        {% endfor %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="third-section">
+    <div class="card">
+      <h1 class="card-header" id="h-font">Introducing KMC Student Committee</h1>
+      <div class="card-body">
+        <div class="committee-thumbnail"><img id='thumbnail_1' src="{%static 'logo.jpg' %}"> </div>
+        <h5 class="card-title">Students' welfare is our welfare</h5>
+        <p class="card-text">The KMC Students Committee serves as the paradigmatic body for all the students studying
+          in the Kathmandu Model Secondary School. The key aim of establishment of the committee is solely focused on
+          stimulating the participation of our fellow mates in extra-curricular activities, to reinforce their
+          expertise and craftsmanship and to enable all-embracing development of the students. The committee acts as a
+          bridge between the college administration and the students in many proportions in which the students can
+          showcase their aptitude and can achieve greater success. The committee provides tenets for such enthusiasts
+          to partake in many intra as well as inter-college competitions.<br><br>
+          We have been categorized into 12 clubs namely Art and culture club, Computer club, Dance club, Event
+          Management club, Legal club, Literature club, Media club, Music club, Research and Presentation club,
+          Robotics club, Speech and debate club and social club and an Editor team. The corresponding clubs enable
+          all-round development of the students of the college in their respective realm by organizing various
+          skill-broadening events and sessions. The committee has also been organizing events such as KMC Fun Fest and
+          Techno Fest providing recreation to the students as well in addition to providing the groundwork to showcase
+          their talents. <br><br>
+          The committee remains staunched to providing such platforms and groundwork and representing the students of
+          the college through the amalgamation dedication, devotion and diligence. </p>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="fifth-section">
+    <div class="card">
+      <h1 class="card-header" id="h-font">Introducing Committee's Executives</h1>
+      <div class="card-body">
+
+        <!-- partial:index. for Club Executives-->
+        <div class="container">
+          <div class="row">
+
+            {% for executive in club_heads %}
+            {% if executive.designation == 'E' %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="our-team">
+                <div class="picture">
+                  <img class="img-fluid" src="{{executive.photo.url}}">
+                </div>
+                <div class="team-content">
+                  <h3 class="name">{{executive.name}}</h3>
+                  <h4 class="title">{{executive.club}}</h4>
+                </div>
+                <ul class="social">
+                  {% if executive.facebook_link %}
+                  <li><a href="{{executive.facebook_link}}" class="fa fa-facebook" aria-hidden="true" target="blank"></a></li>
+                  {% endif %}
+                  {% if executive.instagram_link %}
+                  <li><a href="{{executive.instagram_link}}" class="fa fa-instagram" aria-hidden="true" target="blank"></a></li>
+                  {% endif %}
+                  {% if executive.linkedin_link %}
+                  <li><a href="{{executive.linkedin_link}}" class="fa fa-linkedin" aria-hidden="true" target="blank"></a></li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="fourth-section">
+      <div class="card">
+        <h1 class="card-header" id="h-font">Introducing Club's Presidents</h1>
+        <div class="card-body">
+
+
+
+          <!-- partial:index.partial.html -->
+          <div class="container">
+            <div class="row">
+            {% for president in club_heads %}
+            {% if president.designation == 'P' %}
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{{president.photo.url}}">
+                  </div>
+                  <div class=" team-content">
+                    <h3 class="name">{{president.name}}</h3>
+                    <h4 class="title">{{president.club}}</h4>
+                  </div>
+                  <ul class="social">
+                    {% if president.facebook_link %}
+                    <li><a href="{{president.facebook_link }}" class="fa fa-facebook" aria-hidden="true" target="blank"></a></li>
+                    {% endif %}
+                    {% if president.instagram_link %}
+                    <li><a href="{{president.instagram_link}}" class="fa fa-instagram" aria-hidden="true" target="blank"></a></li>
+                    {% endif %}
+                    {% if president.linkedin_link %}
+                    <li><a href="{{president.linkedin_link}}" class="fa fa-linkedin" aria-hidden="true" target="blank"></a>
+                    </li>
+                    {% endif %}
+
+                  </ul>
+                </div>
+              </div>
+            {% endif %}
+            {% endfor %}
+              <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\abhishek.JPG' %}">
+                  </div>
+                  <div class="team-content">
+                    <h3 class="name">Abhishek Kandel</h3>
+                    <h4 class="title">Computer Science Club</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="https://www.facebook.com/abhishekkandel88/" class="fa fa-facebook"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://twitter.com/abhishekkandel3" class="fa fa-twitter" aria-hidden="true"></a>
+                    </li>
+                    <li><a href="https://www.instagram.com/abhishekkandel45/" class="fa fa-instagram"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://np.linkedin.com/in/abhishekkandel45" class="fa fa-linkedin"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://www.snapchat.com/add/abhishekkandel4" class="fa fa-snapchat"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://github.com/abhishekkandel45" class="fa fa-github" aria-hidden="true"></a>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\sonika.JPG' %}">
+                  </div>
+                  <div class="team-content">
+                    <h3 class="name">Sonika Thapa Magar</h3>
+                    <h4 class="title">Dance Club</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="https://www.facebook.com/sonika.thapamagar.315" class="fa fa-facebook"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://www.snapchat.com/add/sonika_thapamag" class="fa fa-snapchat"
+                        aria-hidden="true"></a></li>
+
+                    <li><a href="https://www.instagram.com/sonyymagarr/" class="fa fa-instagram" aria-hidden="true"></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\suyog.JPG' %}">
+                  </div>
+                  <div class=" team-content">
+                    <h3 class="name">Suyog Gaire</h3>
+                    <h4 class="title">Robotics Club</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-twitter" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-instagram" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-linkedin" aria-hidden="true"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\simran.JPG' %}">
+                  </div>
+                  <div class="team-content">
+                    <h3 class="name"> Simran Mainali</h3>
+                    <h4 class="title">Social Club</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-twitter" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-instagram" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-linkedin" aria-hidden="true"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\ritika.JPG' %}">
+                  </div>
+                  <div class="team-content">
+                    <h3 class="name">Ritika Shah</h3>
+                    <h4 class="title">Speech and Debate</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-twitter" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-instagram" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-linkedin" aria-hidden="true"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\subham.JPG' %}">
+                  </div>
+                  <div class="team-content">
+                    <h3 class="name">Subham Bastola</h3>
+                    <h4 class="title">Editorial</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-twitter" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-instagram" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-linkedin" aria-hidden="true"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\dipesh.JPG' %}">
+                  </div>
+                  <div class=" team-content">
+                    <h3 class="name">Dipesh Khadka</h3>
+                    <h4 class="title">Media Club</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="https://www.facebook.com/dipesh.khadka.393" class="fa fa-facebook"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://www.instagram.com/khadka.dipesh22/" class="fa fa-instagram"
+                        aria-hidden="true"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\sushovan.JPG' %}">
+                  </div>
+                  <div class="team-content">
+                    <h3 class="name">Sushovan Paudyal</h3>
+                    <h4 class="title">Music Club</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="https://www.facebook.com/sushovan.paudyal" class="fa fa-facebook"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://www.instagram.com/sushovan_09/" class="fa fa-instagram" aria-hidden="true"></a>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\nandawee.JPG' %}">
+                  </div>
+                  <div class="team-content">
+                    <h3 class="name">Nandawee Lamichhane</h3>
+                    <h4 class="title">Research and Presentation Club</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-twitter" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-instagram" aria-hidden="true"></a></li>
+                    <li><a href="#" class="fa fa-linkedin" aria-hidden="true"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\kunjani.JPG' %}">
+                  </div>
+                  <div class=" team-content">
+                    <h3 class="name">Kunjani Manandar</h3>
+                    <h4 class="title">Event Management Club</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="https://www.facebook.com/kunjani.manandhar" class="fa fa-facebook"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://www.instagram.com/kunju.mndhr/" class="fa fa-instagram" aria-hidden="true"></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\shruti.JPG' %}">
+                  </div>
+                  <div class="team-content">
+                    <h3 class="name">Shruti Timsina</h3>
+                    <h4 class="title">Legal Club</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="https://www.facebook.com/timsina.shruti696" class="fa fa-facebook"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://twitter.com/TimsinaShruti" class="fa fa-twitter" aria-hidden="true"></a>
+                    </li>
+                    <li><a href="https://www.instagram.com/shruti_timsina/" class="fa fa-instagram"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://www.snapchat.com/add/sharmasruty" class="fa fa-snapchat"
+                        aria-hidden="true"></a></li>
+
+
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                  <div class="picture">
+                    <img class="img-fluid" src="{%static 'img\presidents\sanskriti.JPG' %}">
+                  </div>
+                  <div class="team-content">
+                    <h3 class="name">Sanskriti Duwadi</h3>
+                    <h4 class="title">Literature Club</h4>
+                  </div>
+                  <ul class="social">
+                    <li><a href="https://www.facebook.com/akshyata.duwadi" class="fa fa-facebook"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://www.instagram.com/sanskritiduwadi/" class="fa fa-instagram"
+                        aria-hidden="true"></a></li>
+                    <li><a href="https://www.snapchat.com/add/sanskrityduwadi" class="fa fa-snapchat"
+                        aria-hidden="true"></a></li>
+                  </ul>
+                </div>
+              </div> -->
+
+            </div>
+
+          </div>
+            <!-- partial:index.partial.html -->
+
+
+
+
+            <!-- Reviews -->
+
+            <div class="review" id="reviewSection">
+              <h1>Reviews From Our Visitors</h1>
+              <div class="row">
+
+                <!-- Review 1 -->
+                {% for review in reviews %}
+                <div class="col col-md-3 col-11 coln">
+                  <div class="front ">
+                    <div class="middle">
+                      <img src="{{review.Image.url}}">
+                      <div class="person"> {{review.Name}} </div>
+                      <div class="stars">
+                        {% with ''|center:review.Stars as range %}
+                        {% for _ in range %}
+                        <i class="fa fa-star"></i>
+                        {% endfor %}
+                        {% endwith %}
+                        <!--<i class="fa fa-star"></i>-->
+                        <!--<i class="fa fa-star"></i>-->
+                        <!--<i class="fa fa-star"></i>-->
+                        <!--<i class="fa fa-star"></i>-->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="back">
+                    <p>{{review.Message}}<br><br>
+                      <cite><img src="{{review.Image.url}}"> &nbsp;{{review.Name}}</cite>
+                    </p>
+
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <footer id="footer">
+              {% include 'footer.html' %} {% block footer %}{% endblock %}
+            </footer>
+
+            <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+            <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+            <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>
+</body>
+
+</html>

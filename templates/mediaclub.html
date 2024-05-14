@@ -1,0 +1,117 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Club</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
+</head>
+
+<body>
+
+  <div id='nav-placeholder'>{% include 'nav.html' %} {% block nav %} {% endblock %}</div>
+
+  <div class="second-section">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for headerId in headerImgs.keys %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{headerId}}" class="active"
+          aria-current="true" aria-label="Slide {{headerId}}"></button>
+        {% endfor %}
+
+      </div>
+      <div class="carousel-inner">
+        {% for headerId, headerImg in headerImgs.items %}
+        <div class="carousel-item {% if headerId == 0 %} active {% endif %}">
+          <img src="{{headerImg.Image.url}}" class='d-block w-100' alt='...' style="max-height: 400px;">
+        </div>
+        {% endfor %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="third-section">
+    <div class="card">
+      <h1 class="card-header" id="h-font">Introducing Media Club</h1>
+      <div class="card-body">
+        <div class="committee-thumbnail"><img id='thumbnail_1' src="{%static 'img/mediaclub/medialogo.png' %}"> </div>
+          <br>
+          <h5 class="card-title">"What separates good content from great content is a willingness
+            to take risks and push the envelope".</h5>
+          <p class="card-text">Welcome to KMC media club. The KMC Media Club is made up
+            of a close-knitted group of learners who share a common interest
+            in photography and live sound production. They work tirelessly
+            around the institute to support all it's visual and media needs
+            throughout the year.<br><br>The students serve the institue in many areas, ranging from
+            playing a pivotal role in ensuring the success of every major
+            events and concerts. They also capture the important moments in
+            these events for the purpose of sharing on media platforms and
+            keeping these precious moments for future publications.<br><br>
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section-fourth">
+      <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">OBJECTIVES OF COMPUTER CLUB</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <th scope="row">1</th>
+                <td>Organizing events and competitions to enhance creativity.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">2</th>
+                <td>Documenting various projects through photos and videos.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Create graphic contents and notices.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">4</th>
+                <td colspan="2">Displaying the creativity of learners and support them.</td>
+              </tr>
+
+
+            </tbody>
+          </table>
+
+
+    </div>
+    <footer id="footer">
+      {% include 'footer.html' %} {% block footer %}{% endblock %}
+    </footer>
+    <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Section</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/blog.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+  <div id="nav-placeholder">{% include 'nav.html' %} {% block nav %} {% endblock %}</div><br>
+  <div style="width:100%; text-align: center; margin: 0px;">
+    <h1 id='h-font'>Blogs and Art Posts</h1>
+  </div>
+  <div class="row">
+    <div class="leftcolumn">
+        {% if required.post.id %}
+        <div class="card" id="{{required.post.id}}">
+        <h2>{{required.post.Title}}</h2>
+        <hr>
+        <h5 class="postInfo">         
+          <div >
+            <i class="fa fa-user" style="font-size:20px;color:skyblue;"></i>&nbsp;&nbsp;<b>Author Name:</b> {{required.post.Publisher}}
+          </div>
+          <!-- <div style= "min-width: fit-content">
+            <button class="rxnBtn">
+              <i class="fa fa-heart" style="font-size:20px;color:rgb(236, 19, 56);"></i>
+            </button>
+            <strong>{{required.post.Likes}}</strong> 
+          </div> -->
+          <div style="padding-top: 8px;">
+           <b> Published Date:</b> {{required.post.PublishDate}}
+          </div>
+          <div style="border: none;">
+           <button class="copyLinkBtn" onclick= "copyLink('{{required.post.id}}')" ><i class="fa fa-link" style="font-size:20px;color:rgb(32, 88, 170);"></i> 
+            </button>
+            <b>Copy Link </b>
+            <br>
+          </div>
+        </h5>
+        {% if required.Images %}
+        <div class="image-container">
+          {% for img in required.Images %}
+          <a href="{{img.Image.url}}">
+            <img src="{{img.Image.url}}" width="100%" style="margin-bottom: 20px;">
+          </a>
+        {% endfor %}
+        </div> 
+        {% endif %}     
+        <p>{{required.post.Content}}</p>
+        </div>
+        {% endif %}
+
+        {% for blog in blogs %}
+        <div class="card" id="{{blog.id}}">
+        <h2>{{blog.post.Title}}</h2>
+        <hr>
+        <h5 class="postInfo">         
+          <div >
+            <i class="fa fa-user" style="font-size:20px;color:skyblue;"></i>&nbsp;&nbsp;<b>Author Name:</b> {{blog.post.Publisher}}
+          </div>
+          <!-- <div style= "min-width: fit-content">
+            <button class="rxnBtn">
+              <i class="fa fa-heart" style="font-size:20px;color:rgb(236, 19, 56);"></i>
+            </button>
+            <strong>{{blog.post.Likes}}</strong> 
+          </div> -->
+          <div style="padding-top: 8px;">
+           <b> Published Date:</b> {{blog.post.PublishDate}} 
+          </div>
+          <div style="border: none;">
+           <button class="copyLinkBtn" onclick= "copyLink('{{blog.post.id}}')"><i class="fa fa-link" style="font-size:20px;color:rgb(32, 88, 170);"></i>
+            </button>
+            <b>Copy Link </b>
+            <br>
+          </div>
+        </h5>
+        {% if blog.Image %}
+        <div class="image-container">
+          {% for img in blog.Image %}
+
+          <a href="{{img.Image.url}}">
+            <img src="{{img.Image.url}}" width="100%" style="margin-bottom: 20px;">
+          </a>
+        {% endfor %}
+        </div>
+        {% endif %}
+
+        <p>{{blog.post.Content}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="rightcolumn">
+        
+      <div class="card popular_posts">
+        <h3>Popular Posts</h3>
+        {% for blog in blogs %}
+        <div class="otherPost">
+        {% if blog.Image %}
+        <img src="{{blog.Image.0.Image.url}}" width="100%"> 
+        {% endif %}
+        <a href="/blogs.html/{{blog.post.id}}">
+        {{blog.post.Title}}
+        </a>
+        <br>
+        Author Name: {{blog.post.Publisher}}</div>
+        {% endfor %}
+
+    </div>
+  </div>
+
+  <br><br>
+  </div>
+  </div>
+  <footer id="footer">
+    {% include 'footer.html' %} {% block footer %}{% endblock %}
+  </footer>
+  <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/blog.js' %}"></script>
+    {% comment %}
+    <script type="text/javascript" src="{%static 'js/function.js' %}"></script>
+    {% endcomment %}
+    <textarea hidden=false id="url" cols="30" rows="10" value="123"></textarea>
+</body>
+</body>
+
+</html>

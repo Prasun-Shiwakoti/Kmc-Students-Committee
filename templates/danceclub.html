@@ -1,0 +1,105 @@
+{% include 'nav.html' %} {%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damce Club</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
+</head>
+<body>
+
+   <div id='nav-placeholder'>{% block nav %} {% endblock %}</div>
+
+    <div class="second-section">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            {% for headerId in headerImgs.keys %}
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{headerId}}" class="active"
+              aria-current="true" aria-label="Slide {{headerId}}"></button>
+            {% endfor %}
+
+          </div>
+          <div class="carousel-inner">
+            {% for headerId, headerImg in headerImgs.items %}
+            <div class="carousel-item {% if headerId == 0 %} active {% endif %}">
+              <img src="{{headerImg.Image.url}}" class='d-block w-100' alt='...' style="max-height: 400px;">
+            </div>
+            {% endfor %}
+
+          </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+      </div>
+
+      <div class="third-section">
+        <div class="card">
+          <h1 class="card-header" id="h-font">Introducing Dance Club</h1>
+          <div class="card-body">
+              <div class="committee-thumbnail"><img id='thumbnail_1'  src="{%static 'img/danceclub/dancelogo.png' %}"></div>
+          <br>
+            <h5 class="card-title">This section will contain the indtroduction of Student committee</h5>
+            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia voluptatibus eos iste velit optio unde perferendis fugit sunt! Ipsam exercitationem doloribus delectus cumque soluta molestiae modi vel pariatur adipisci recusandae animi quibusdam cupiditate deleniti, voluptatum saepe dolorem doloremque voluptatem! Sapiente iste quidem asperiores fugiat at voluptatum rerum modi, esse optio aliquam laudantium blanditiis eveniet deserunt soluta saepe excepturi! Ducimus culpa odit laboriosam! Fuga ex quam illo deserunt incidunt? In officia vero similique autem, velit, harum perferendis repellat distinctio et numquam voluptatibus neque molestias nobis fugit ipsum voluptatum dolorem dignissimos ex illum exercitationem, ut perspiciatis consequuntur dolorum delectus? Omnis eum dicta sunt totam, voluptatum neque enim sed cupiditate voluptatibus dolore, alias dolores corrupti voluptatem soluta magnam, autem repellendus molestiae veritatis quidem at. Ipsa odit praesentium a dolor consequuntur. Voluptates suscipit deleniti nihil quasi praesentium vitae ipsum rerum deserunt voluptate temporibus. Molestiae dignissimos veritatis totam aliquam optio sed nobis possimus ad beatae.</p>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="section-fourth">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">OBJECTIVES OF COMPUTER CLUB</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <th scope="row">1</th>
+                <td>Generate interest and enthusiasm for technology in general computer science</td>
+              </tr>
+
+              <tr>
+                <th scope="row">2</th>
+                <td>Encourage Creative thinking, problem solving, troubleshooting and reflective learning skills</td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Prepare Competitive team for national and international level</td>
+              </tr>
+
+              <tr>
+                <th scope="row">4</th>
+                <td colspan="2">Learning by time prevelent method</td>
+              </tr>
+
+              <tr>
+                <th scope="row">5</th>
+                <td colspan="2">Motivating and Uplifting the members to prosper in computer skill</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+      </div>
+    <footer id="footer">
+       {% include 'footer.html' %} {% block footer %}{% endblock %}
+    </footer>
+    <script type="text/javascript" src="{%static 'js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{%static 'js/js.js' %}"></script>
+          <script type="text/javascript" src="{%static 'js/jquery.js' %}"></script>
+        {% comment %} <script type="text/javascript" src="js/function.js"></script> {% endcomment %}
+</body>
+</html>
